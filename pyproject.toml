@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "solvatochrome"
+dynamic = ["version"]
+description = "Time-resolved fluorescence solvation dynamics from TCSPC data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Adam H. Turner" },
+]
+keywords = [
+    "TCSPC",
+    "fluorescence",
+    "solvation dynamics",
+    "time-resolved emission spectra",
+    "reconvolution",
+    "spectroscopy",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/turneradam/solvatochrome"
+Issues = "https://github.com/turneradam/solvatochrome/issues"
+
+[tool.hatch.version]
+path = "src/solvatochrome/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/solvatochrome"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "SIM",  # simplify
+]
+ignore = [
+    "N806",  # variable in function should be lowercase — allow math-convention Y, N, etc.
+    "N807",  # function name should not start and end with __ — misfires on dunders
+    "E501",  # line too long — line-length handled by formatter
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
