@@ -19,14 +19,14 @@ jobs:
       - name: Set up Python 3.12
         run: uv python install 3.12
 
-      - name: Install package with dev extras
-        run: uv pip install --system -e ".[dev]"
+      - name: Sync dependencies
+        run: uv sync --extra dev
 
       - name: Lint
-        run: ruff check .
+        run: uv run ruff check .
 
       - name: Format check
-        run: ruff format --check .
+        run: uv run ruff format --check .
 
       - name: Test
-        run: pytest -q
+        run: uv run pytest -q
