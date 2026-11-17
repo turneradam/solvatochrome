@@ -8,8 +8,8 @@ Last revised: November 2026.
 
 ## v0.0.1 (Q4 2026)
 
-Project scaffold. Packaging, tests and CI in place; PyPI name claimed.
-No functionality. (Phase 0)
+Project scaffold. Packaging, tests and CI in place. Not published to
+PyPI. (Phase 0)
 
 ## v0.1 (Q1 2027)
 
@@ -20,6 +20,7 @@ Data types and loaders.
   detection, missing-value tokens
 - Regridding of a decay and IRF onto a shared time axis
 - Parser for Hitachi F-7000 steady-state emission exports
+- First PyPI release, published from GitHub Actions
 
 (Phases 1 and 2)
 
@@ -86,7 +87,7 @@ for fits and TRES. (Phase 5)
 
 ## v1.0 (Q4 2027)
 
-Release polish, archived release on Zenodo. (Phase 6)
+Release polish, JOSS paper, archived release on Zenodo. (Phase 6)
 
 ## After v1.0
 
